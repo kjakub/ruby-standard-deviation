@@ -1,14 +1,16 @@
 #include "ruby.h"
-#include "standard_deviation.h"
 
 
 static VALUE t_summarize(VALUE self)
 {
-  VALUE arr;
-
-  arr = rb_ary_new();
-  rb_iv_set(self, "@arr", arr);
-  return self;
+  double total;
+  double value;
+  total = 0;
+  while (value = rb_each(self)) {
+    printf("%f\n",NUM2DBL(value));
+    total = NUM2DBL(value);
+  }
+  return rb_float_new(total);
 }
 
 
