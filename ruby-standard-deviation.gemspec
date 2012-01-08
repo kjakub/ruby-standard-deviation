@@ -5,7 +5,7 @@ require "rake"
 
 Gem::Specification.new do |s|
   s.name        = "ruby-standard-deviation"
-  s.version     = "1.0.0"
+  s.version     = "1.0.1"
   s.authors     = "Cory Buecker"
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.email       = "email@corybuecker.com"
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Adds a method to the Array class to perform standard deviation calculations"
   s.description = "Adds a method to the Array class to perform standard deviation calculations"
 
-s.files = FileList['ext/*', 'lib/*', '[A-Z]*', '.gitignore'].to_a
-s.extensions << 'ext/extconf.rb'
-s.require_paths = ["lib"]
+  s.files = FileList['ext/extconf.rb', 'ext/standard_deviation.c', 'lib/*', '[A-Z]*', '.gitignore'].to_a
+  s.extensions << 'ext/extconf.rb'
+  s.require_paths = ["lib"]
 end
