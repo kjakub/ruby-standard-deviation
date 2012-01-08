@@ -5,7 +5,7 @@ require "rake"
 
 Gem::Specification.new do |s|
   s.name        = "ruby-standard-deviation"
-  s.version     = "1.0.1"
+  s.version     = "1.0.2"
   s.authors     = "Cory Buecker"
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.email       = "email@corybuecker.com"
