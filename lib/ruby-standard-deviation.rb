@@ -1,0 +1,1 @@
+require 'ruby-standard-deviation/StandardDeviation'

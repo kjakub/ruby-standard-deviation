@@ -1,4 +1,4 @@
-require 'StandardDeviation'
+require 'ruby-standard-deviation'
 require 'benchmark'
 
 class Array
