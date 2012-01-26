@@ -1,5 +1,23 @@
 %module StandardDeviation
 
+%exception native_sample_standard_deviation{
+  try {
+    $action
+  }
+  catch (signed int error) {
+    SWIG_exception(SWIG_DivisionByZero, "you have to include at least two elements in the array");
+  }
+}
+%exception native_population_standard_deviation{
+  try {
+    $action
+  }
+  catch (signed int error) {
+    SWIG_exception(SWIG_DivisionByZero, "you have to include at least one element in the array");
+  }
+}
+
+
 %{
   #include <vector>
 	#include "standard_deviation.c++"
@@ -12,3 +30,4 @@ namespace std {
 }
 
 %include "standard_deviation.c++"
+

@@ -7827,7 +7827,7 @@ free_std_vector_Sl_float_Sg_(std::vector< float > *arg1) {
 }
 
 SWIGINTERN VALUE
-_wrap_native_standard_deviation(int argc, VALUE *argv, VALUE self) {
+_wrap_native_sample_standard_deviation(int argc, VALUE *argv, VALUE self) {
   std::vector< float,std::allocator< float > > arg1 ;
   double result;
   VALUE vresult = Qnil;
@@ -7839,12 +7839,52 @@ _wrap_native_standard_deviation(int argc, VALUE *argv, VALUE self) {
     std::vector<float,std::allocator< float > > *ptr = (std::vector<float,std::allocator< float > > *)0;
     int res = swig::asptr(argv[0], &ptr);
     if (!SWIG_IsOK(res) || !ptr) {
-      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), Ruby_Format_TypeError( "", "std::vector< float,std::allocator< float > >","native_standard_deviation", 1, argv[0] )); 
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), Ruby_Format_TypeError( "", "std::vector< float,std::allocator< float > >","native_sample_standard_deviation", 1, argv[0] )); 
     }
     arg1 = *ptr;
     if (SWIG_IsNewObj(res)) delete ptr;
   }
-  result = (double)native_standard_deviation(arg1);
+  {
+    try {
+      result = (double)native_sample_standard_deviation(arg1);
+    }
+    catch (signed int error) {
+      SWIG_exception(SWIG_DivisionByZero, "you have to include at least two elements in the array");
+    }
+  }
+  vresult = SWIG_From_double(static_cast< double >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_native_population_standard_deviation(int argc, VALUE *argv, VALUE self) {
+  std::vector< float,std::allocator< float > > arg1 ;
+  double result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  {
+    std::vector<float,std::allocator< float > > *ptr = (std::vector<float,std::allocator< float > > *)0;
+    int res = swig::asptr(argv[0], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), Ruby_Format_TypeError( "", "std::vector< float,std::allocator< float > >","native_population_standard_deviation", 1, argv[0] )); 
+    }
+    arg1 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  {
+    try {
+      result = (double)native_population_standard_deviation(arg1);
+    }
+    catch (signed int error) {
+      SWIG_exception(SWIG_DivisionByZero, "you have to include at least one element in the array");
+    }
+  }
   vresult = SWIG_From_double(static_cast< double >(result));
   return vresult;
 fail:
@@ -8263,6 +8303,7 @@ SWIGEXPORT void Init_StandardDeviation(void) {
   SwigClassFloatVector.mark = 0;
   SwigClassFloatVector.destroy = (void (*)(void *)) free_std_vector_Sl_float_Sg_;
   SwigClassFloatVector.trackObjects = 0;
-  rb_define_module_function(mStandardDeviation, "native_standard_deviation", VALUEFUNC(_wrap_native_standard_deviation), -1);
+  rb_define_module_function(mStandardDeviation, "native_sample_standard_deviation", VALUEFUNC(_wrap_native_sample_standard_deviation), -1);
+  rb_define_module_function(mStandardDeviation, "native_population_standard_deviation", VALUEFUNC(_wrap_native_population_standard_deviation), -1);
 }
 

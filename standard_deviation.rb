@@ -15,7 +15,7 @@ a = (1..1000000).to_a
 
 Benchmark.bm do |x|
   x.report("C Extension") {
-   a.standard_deviation
+   a.stdevp
   }
   x.report("Native Ruby"){
     avg = a.mean

@@ -4,8 +4,16 @@ class Array
   
   include StandardDeviation
   
-  def standard_deviation
-    native_standard_deviation(self)
+  def stdev
+    native_sample_standard_deviation(self)
+  end
+  
+  def stdevs
+    native_sample_standard_deviation(self)
+  end
+  
+  def stdevp
+    native_population_standard_deviation(self)
   end
   
 end

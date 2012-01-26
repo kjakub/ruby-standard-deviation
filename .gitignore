@@ -4,3 +4,4 @@ StandardDeviation.bundle
 Makefile
 standard_deviation.o
 StandardDeviation.so
+ext/standard_deviation_wrap.o
