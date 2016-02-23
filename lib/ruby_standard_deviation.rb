@@ -1,5 +1,6 @@
 require "ruby_standard_deviation/version"
+require "standard_deviation"
 
-module RubyStandardDeviation
-  # Your code goes here...
+class Array
+  include StandardDeviation
 end
