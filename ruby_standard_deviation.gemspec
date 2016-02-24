@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = RubyStandardDeviation::VERSION
   spec.authors       = ["Cory Buecker"]
   spec.email         = ["email@corybuecker.com"]
-
+  spec.license       = "Unlicense"
   spec.summary       = "This is a native extension to Ruby that adds a standard deviation calculation to the Array class."
   spec.homepage      = "https://github.com/corybuecker/ruby-standard-deviation"
 
