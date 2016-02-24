@@ -1,36 +1,25 @@
-# RubyStandardDeviation
+# Ruby Standard Deviation
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruby_standard_deviation`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is a native extension to Ruby that adds a standard deviation calculation to the Array class. It is much more performant than calculating the standard deviation with pure Ruby. For a comparison, run the benchmarks with rake.
 
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'ruby_standard_deviation'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ruby_standard_deviation
+    bench_native_extension    0.057660  0.048161  0.054150  0.049357  0.048524
+    bench_pure_ruby           0.267613  0.269168  0.289011  0.271467  0.279694
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'ruby-standard-deviation'
+    r = [1,3,21,32,42]
 
-## Development
+    # calculate sample standard deviation, you can also use "stdevs"
+    p r.stdev
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+    # calculate population standard deviation
+    p r.stdevp
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Links
 
-## Contributing
+This is the second version of this gem, and it is a total rewrite of a SWIG-based design. Lots of thanks to the following resources:
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ruby_standard_deviation.
-
+* https://blog.jcoglan.com/2012/07/29/your-first-ruby-native-extension-c/
+* https://github.com/andremedeiros/ruby-c-cheat-sheet
+* http://silverhammermba.github.io/emberb/c/

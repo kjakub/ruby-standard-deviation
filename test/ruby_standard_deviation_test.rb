@@ -24,6 +24,22 @@ class RubyStandardDeviationTest < Minitest::Test
   end
 
   def test_sample_standard_deviation
-    assert_in_delta 3.027650354, (1..10).to_a.stdev, 0.001
+    assert_in_delta 13.65039682, ((1..10).to_a + [-41, 0]).stdev, 0.00001
+  end
+
+  def test_sample_standard_deviation_with_non_number
+    assert_raises TypeError do
+      ((1..10).to_a + [-41, "a", 0]).stdev
+    end
+  end
+
+  def test_population_standard_deviation
+    assert_in_delta 12.55660528, ((1..10).to_a + [-41, 1.32, 0]).stdevp, 0.00001
+  end
+
+  def test_population_standard_deviation_with_non_number
+    assert_raises TypeError do
+      ((1..10).to_a + [-41, "a", 0]).stdev
+    end
   end
 end

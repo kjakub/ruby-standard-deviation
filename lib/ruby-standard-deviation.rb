@@ -1,4 +1,4 @@
-require "ruby_standard_deviation/version"
+require "ruby-standard-deviation/version"
 require "standard_deviation"
 
 class Array
