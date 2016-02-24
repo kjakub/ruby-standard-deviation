@@ -9,16 +9,16 @@ void Init_standard_deviation() {
 }
 
 VALUE rb_sample_standard_deviation(VALUE self) {
-  if (RB_TYPE_P(self, T_ARRAY) == 0) {
-    rb_raise(rb_eTypeError, "can only be used on an array");
-  }
-
   double total = 0;
   double mean = 0;
   double result = 0;
   double total_distance_from_mean = 0;
-  unsigned int array_length = rb_long2int(rb_array_len(self));
+  unsigned int array_length = rb_long2int(RARRAY_LEN(self));
   unsigned long i;
+
+  if (RB_TYPE_P(self, T_ARRAY) == 0) {
+    rb_raise(rb_eTypeError, "can only be used on an array");
+  }
 
   if (array_length <= 1) {
     rb_raise(rb_eRangeError, "array must have more than one element");
@@ -40,16 +40,16 @@ VALUE rb_sample_standard_deviation(VALUE self) {
 }
 
 VALUE rb_population_standard_deviation(VALUE self) {
-  if (RB_TYPE_P(self, T_ARRAY) == 0) {
-    rb_raise(rb_eTypeError, "can only be used on an array");
-  }
-
   double total = 0;
   double mean = 0;
   double result = 0;
   double total_distance_from_mean = 0;
-  unsigned int array_length = rb_long2int(rb_array_len(self));
+  unsigned int array_length = rb_long2int(RARRAY_LEN(self));
   unsigned long i;
+
+  if (RB_TYPE_P(self, T_ARRAY) == 0) {
+    rb_raise(rb_eTypeError, "can only be used on an array");
+  }
 
   if (array_length <= 1) {
     rb_raise(rb_eRangeError, "array must have more than one element");
