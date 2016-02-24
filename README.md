@@ -29,3 +29,4 @@ This is the second version of this gem, and it is a total rewrite of a SWIG-base
 * https://blog.jcoglan.com/2012/07/29/your-first-ruby-native-extension-c/
 * https://github.com/andremedeiros/ruby-c-cheat-sheet
 * http://silverhammermba.github.io/emberb/c/
+* http://docs.ruby-lang.org/en/2.3.0/extension_rdoc.html
