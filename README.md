@@ -2,7 +2,11 @@
 
 [![Circle CI](https://circleci.com/gh/corybuecker/ruby-standard-deviation.svg?style=svg)](https://circleci.com/gh/corybuecker/ruby-standard-deviation)
 
-This is a native extension to Ruby that adds a standard deviation calculation to the Array class. It is much more performant than calculating the standard deviation with pure Ruby. For a comparison, run the benchmarks with rake.
+This is a native extension to Ruby that adds a standard deviation calculation to the Array class.
+
+Check the CircleCI build to see the currently supported versions of Ruby. This list will match whatever versions are specified at https://www.ruby-lang.org/en/downloads/.
+
+It is much more performant than calculating the standard deviation with pure Ruby. For a comparison, run the benchmarks with rake.
 
     bench_native_extension    0.057660  0.048161  0.054150  0.049357  0.048524
     bench_pure_ruby           0.267613  0.269168  0.289011  0.271467  0.279694
