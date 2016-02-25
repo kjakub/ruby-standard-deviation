@@ -8,13 +8,27 @@ void Init_standard_deviation() {
   rb_define_method(StandardDeviationModule, "stdevp", rb_population_standard_deviation, 0);
 }
 
-VALUE rb_sample_standard_deviation(VALUE self) {
+double calculate_total_distance_from_mean(VALUE array, unsigned long array_length){
+  unsigned long i;
   double total = 0;
   double mean = 0;
-  double result = 0;
   double total_distance_from_mean = 0;
+
+  for(i = 0; i < array_length; i++){
+    total += rb_num2dbl(rb_ary_entry(array, i));
+  }
+
+  mean = total / array_length;
+
+  for(i = 0; i < array_length; i++){
+    total_distance_from_mean += pow((rb_num2dbl(rb_ary_entry(array, i)) - mean), 2);
+  }
+
+  return total_distance_from_mean;
+}
+
+VALUE rb_sample_standard_deviation(VALUE self) {
   unsigned int array_length = rb_long2int(RARRAY_LEN(self));
-  unsigned long i;
 
   if (RB_TYPE_P(self, T_ARRAY) == 0) {
     rb_raise(rb_eTypeError, "can only be used on an array");
@@ -24,28 +38,11 @@ VALUE rb_sample_standard_deviation(VALUE self) {
     rb_raise(rb_eRangeError, "array must have more than one element");
   }
 
-  for(i = 0; i < array_length; i++){
-    total += rb_num2dbl(rb_ary_entry(self, i));
-  }
-
-  mean = total / array_length;
-
-  for(i = 0; i < array_length; i++){
-    total_distance_from_mean += pow((rb_num2dbl(rb_ary_entry(self, i)) - mean), 2);
-  }
-
-  result = sqrt((total_distance_from_mean/(array_length - 1)));
-
-  return DBL2NUM(result);
+  return DBL2NUM(sqrt((calculate_total_distance_from_mean(self, array_length)/(array_length - 1))));
 }
 
 VALUE rb_population_standard_deviation(VALUE self) {
-  double total = 0;
-  double mean = 0;
-  double result = 0;
-  double total_distance_from_mean = 0;
   unsigned int array_length = rb_long2int(RARRAY_LEN(self));
-  unsigned long i;
 
   if (RB_TYPE_P(self, T_ARRAY) == 0) {
     rb_raise(rb_eTypeError, "can only be used on an array");
@@ -55,17 +52,5 @@ VALUE rb_population_standard_deviation(VALUE self) {
     rb_raise(rb_eRangeError, "array must have more than one element");
   }
 
-  for(i = 0; i < array_length; i++){
-    total += rb_num2dbl(rb_ary_entry(self, i));
-  }
-
-  mean = total / array_length;
-
-  for(i = 0; i < array_length; i++){
-    total_distance_from_mean += pow((rb_num2dbl(rb_ary_entry(self, i)) - mean), 2);
-  }
-
-  result = sqrt(total_distance_from_mean / array_length);
-
-  return DBL2NUM(result);
+  return DBL2NUM(sqrt(calculate_total_distance_from_mean(self, array_length) / array_length));
 }
