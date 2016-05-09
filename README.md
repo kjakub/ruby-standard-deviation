@@ -4,7 +4,7 @@
 
 This is a native extension to Ruby that adds a standard deviation calculation to the Array class.
 
-Check the CircleCI build to see the currently supported versions of Ruby. This list will match whatever versions are specified at https://www.ruby-lang.org/en/downloads/.
+Check the TravisCI build to see the currently supported versions of Ruby. This list will match whatever versions are specified at https://www.ruby-lang.org/en/downloads/.
 
 It is much more performant than calculating the standard deviation with pure Ruby. For a comparison, run the benchmarks with rake.
 
