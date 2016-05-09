@@ -8,8 +8,8 @@ Check the CircleCI build to see the currently supported versions of Ruby. This l
 
 It is much more performant than calculating the standard deviation with pure Ruby. For a comparison, run the benchmarks with rake.
 
-    bench_native_extension	 0.000573	 0.000507	 0.000616	 0.000606	 0.000528
-    bench_pure_ruby	 0.004794	 0.004045	 0.002673	 0.002667	 0.003728
+    bench_native_extension   0.000573	 0.000507	 0.000616	 0.000606	 0.000528
+    bench_pure_ruby          0.004794	 0.004045	 0.002673	 0.002667	 0.003728
 
 ## Usage
 
