@@ -1,4 +1,4 @@
-# Ruby Standard Deviation
+# Ruby Standard Deviation [reverted before it get yanked from rubygems]
 
 [![Build Status](https://travis-ci.org/corybuecker/ruby-standard-deviation.svg)](https://travis-ci.org/corybuecker/ruby-standard-deviation)
 
